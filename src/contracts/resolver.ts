@@ -1,1 +1,1 @@
-const RESOLVER_ADDRESS = "";
+export const RESOLVER_ADDRESS = "";
