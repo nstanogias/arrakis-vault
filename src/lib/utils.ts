@@ -12,3 +12,8 @@ export const formatTokenBalance = (
 ): number => {
   return Number(formatUnits(balance, decimals));
 };
+
+export const imageSrcMapper: Record<string, string> = {
+  WETH: "/assets/images/weth.webp",
+  rETH: "/assets/images/reth.webp",
+};

@@ -25,10 +25,13 @@ type ErrorResponse = {
 
 export type ContractCallResponse<T> = SuccessfullResponse<T> | ErrorResponse;
 
-export type TokenBalance = {
+export type TokenInfo = {
   address: string;
   name: string;
   symbol: string;
   decimals: number;
+};
+
+export type TokenBalance = TokenInfo & {
   balance: bigint;
 };
