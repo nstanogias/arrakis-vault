@@ -15,7 +15,9 @@ const Hero = () => {
           <p className="p-regular-20 md:p-regular-24">
             Make liquidity provision more scalable and efficient than ever
           </p>
-          {!account.isConnected && <WalletConnectButton />}
+          {!account.isConnected && (
+            <WalletConnectButton className="rounded-full" />
+          )}
         </div>
 
         <Image

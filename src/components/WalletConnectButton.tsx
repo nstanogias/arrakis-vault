@@ -3,7 +3,11 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Button } from "./ui/button";
 
-const WalletConnectButton = () => {
+interface Props {
+  className?: string;
+}
+
+const WalletConnectButton = ({ className }: Props) => {
   return (
     <ConnectButton.Custom>
       {({
@@ -36,7 +40,9 @@ const WalletConnectButton = () => {
             {(() => {
               if (!connected) {
                 return (
-                  <Button onClick={openConnectModal}>Connect Wallet</Button>
+                  <Button onClick={openConnectModal} className={className}>
+                    Connect Wallet
+                  </Button>
                 );
               }
 
