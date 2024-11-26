@@ -37,7 +37,7 @@ export const getMintAmounts = async (
     console.log(error);
     return {
       status: ContractCallResponseStatus.Failure,
-      error: "Failed to get min amounts",
+      error: "Failed to get mint amounts",
     };
   }
 };
