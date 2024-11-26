@@ -77,12 +77,10 @@ export const getVaultData = async (
     data: {
       address: vaultAddress,
       token0: {
-        address: token0Address,
         balance: result[2].result![0],
         ...token0Info.data,
       },
       token1: {
-        address: token1Address,
         balance: result[2].result![1],
         ...token1Info.data,
       },
