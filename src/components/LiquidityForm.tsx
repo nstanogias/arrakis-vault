@@ -47,7 +47,7 @@ const LiquidityForm = ({ vaultData }: Props) => {
         console.error("Failed to fetch token balances");
         return;
       }
-      setUserBalances([
+      const userBalances = [
         formatTokenBalance(
           userBalanceToken0.data.balance,
           userBalanceToken0.data.decimals
@@ -56,7 +56,8 @@ const LiquidityForm = ({ vaultData }: Props) => {
           userBalanceToken1.data.balance,
           userBalanceToken1.data.decimals
         ),
-      ]);
+      ];
+      setUserBalances(userBalances);
     };
     fetchBalances();
   }, [account]);
@@ -186,9 +187,16 @@ const LiquidityForm = ({ vaultData }: Props) => {
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-orange-500 hover:bg-orange-600"
           }`}
-          disabled={token0ExceedsBalance || token1ExceedsBalance}
+          disabled={
+            token0ExceedsBalance ||
+            token1ExceedsBalance ||
+            token0Value === "" ||
+            token1Value === ""
+          }
         >
-          {token0ExceedsBalance || token1ExceedsBalance
+          {token0ExceedsBalance ||
+          token1ExceedsBalance ||
+          userBalances.some((balance) => balance === 0)
             ? "Insufficient Funds"
             : "Confirm"}
         </Button>
