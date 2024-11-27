@@ -5,7 +5,7 @@ import React from "react";
 const Logo = () => {
   return (
     <Link href="/">
-      <div className="flex items-center">
+      <div className="flex items-center justify-center md:justify-start">
         <Image
           src="/assets/icons/logo.svg"
           alt="Arrakis"

@@ -24,7 +24,7 @@ export default function Vault({
   return (
     <div className="p-6">
       <h1 className="text-xl font-bold">Vault Balance:</h1>
-      <div className="mt-4">
+      <div className="my-4">
         <p>
           <strong>{vaultData.token0.name}</strong>{" "}
           {formatTokenBalance(
@@ -43,7 +43,7 @@ export default function Vault({
       <LiquidityForm vaultData={vaultData} />
       <Button
         onClick={() => router.push("/")}
-        className="w-fit text-white bg-gray-900 hover:bg-gray-700"
+        className="w-full md:w-fit text-white bg-gray-900 hover:bg-gray-700 mt-4"
       >
         Back to Vaults
       </Button>
