@@ -32,6 +32,19 @@ const LiquidityForm = ({ vaultData }: Props) => {
 
   const token0ExceedsBalance = +token0Value > userBalances[0];
   const token1ExceedsBalance = +token1Value > userBalances[1];
+  const tokenProportion =
+    parseFloat(
+      formatTokenBalance(
+        vaultData.token1.balance,
+        vaultData.token1.decimals
+      ).toFixed(8)
+    ) /
+    parseFloat(
+      formatTokenBalance(
+        vaultData.token0.balance,
+        vaultData.token0.decimals
+      ).toFixed(8)
+    );
 
   useEffect(() => {
     const fetchBalances = async () => {
@@ -67,7 +80,7 @@ const LiquidityForm = ({ vaultData }: Props) => {
     // we need this to avoide infinite loops when user is typing
     if (document.activeElement?.id === "token0") {
       const token0Number = parseFloat(token0Value) || 0;
-      setValue("token1", (token0Number * 2).toFixed(8));
+      setValue("token1", (token0Number * tokenProportion).toFixed(8));
     }
   }, [token0Value, setValue]);
 
@@ -75,7 +88,7 @@ const LiquidityForm = ({ vaultData }: Props) => {
   useEffect(() => {
     if (document.activeElement?.id === "token1") {
       const token1Number = parseFloat(token1Value) || 0;
-      setValue("token0", (token1Number / 2).toFixed(8));
+      setValue("token0", (token1Number / tokenProportion).toFixed(8));
     }
   }, [token1Value, setValue]);
 
