@@ -45,6 +45,7 @@ const TokenInput = ({
 
       <Input
         id={id}
+        data-testid={id}
         type="text"
         placeholder="0.00"
         value={value}

@@ -9,8 +9,8 @@ import WalletConnectButton from "./WalletConnectButton";
 import { VaultData } from "@/contracts/vault";
 import { formatTokenBalance, imageSrcMapper } from "@/lib/utils";
 import Image from "next/image";
-import { getTokenBalance } from "@/contracts/erc20";
 import LiquidityStepsModal from "./LiquidityStepsModal";
+import { getTokenBalance } from "@/contracts/erc20";
 
 interface Props {
   vaultData: VaultData;
