@@ -40,7 +40,11 @@ const WalletConnectButton = ({ className }: Props) => {
             {(() => {
               if (!connected) {
                 return (
-                  <Button onClick={openConnectModal} className={className}>
+                  <Button
+                    onClick={openConnectModal}
+                    className={className}
+                    data-testid="connect-wallet-button"
+                  >
                     Connect Wallet
                   </Button>
                 );

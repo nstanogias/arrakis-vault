@@ -44,6 +44,7 @@ export default function Vault({
       <Button
         onClick={() => router.push("/")}
         className="w-full md:w-fit text-white bg-gray-900 hover:bg-gray-700 mt-4"
+        data-testid="back-to-vaults"
       >
         Back to Vaults
       </Button>

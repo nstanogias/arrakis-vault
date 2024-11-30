@@ -80,6 +80,7 @@ const VaultCard = ({
         <Button
           onClick={() => router.push(`/vault/${vaultAddress}`)}
           className="w-full text-white bg-gray-900 hover:bg-gray-700"
+          data-testid="go-to-vault"
         >
           GO TO VAULT &gt;
         </Button>

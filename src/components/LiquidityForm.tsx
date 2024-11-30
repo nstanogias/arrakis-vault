@@ -206,6 +206,7 @@ const LiquidityForm = ({ vaultData }: Props) => {
             token0Value === "" ||
             token1Value === ""
           }
+          data-testid="confirm-button"
         >
           {token0ExceedsBalance ||
           token1ExceedsBalance ||
