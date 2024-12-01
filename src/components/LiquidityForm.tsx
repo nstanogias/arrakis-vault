@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -25,7 +26,8 @@ const LiquidityForm = ({ vaultData }: Props) => {
     },
   });
 
-  const [userBalances, setUserBalances] = useState<number[]>([0, 0]);
+  const initialBalances = (window as any).useBalances ? [100, 200] : [0, 0];
+  const [userBalances, setUserBalances] = useState<number[]>(initialBalances);
 
   const token0Value = watch("token0");
   const token1Value = watch("token1");
@@ -191,7 +193,7 @@ const LiquidityForm = ({ vaultData }: Props) => {
         )}
       />
 
-      {account.isConnected ? (
+      {account.isConnected || (window as any).useMockAccount ? (
         <Button
           type="submit"
           onClick={handleFormSubmit}
@@ -204,7 +206,9 @@ const LiquidityForm = ({ vaultData }: Props) => {
             token0ExceedsBalance ||
             token1ExceedsBalance ||
             token0Value === "" ||
-            token1Value === ""
+            token1Value === "" ||
+            token0Value === "0" ||
+            token1Value === "0"
           }
           data-testid="confirm-button"
         >

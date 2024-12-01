@@ -37,6 +37,7 @@ const TokenInput = ({
             type="button"
             onClick={onMaxClick}
             className="ml-2 text-blue-500 hover:underline"
+            data-testid={`${id}-max`}
           >
             MAX
           </button>
